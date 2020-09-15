@@ -19,7 +19,7 @@ class Header_data():
 
     def get_header(self):
 
-        return list(self.data.columns[0:4])
+        return list(self.data.columns)
 
     def get_date(self):
 

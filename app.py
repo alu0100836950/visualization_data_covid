@@ -24,6 +24,10 @@ header_data = Header_data()
 def index():
     return render_template('index.html')
 
+@app.route('/diagramas')
+def view_diagram():
+    return render_template('diagramas.html')
+
 @app.route('/dataFile', methods = ['POST'])
 def data_file():
 
@@ -59,10 +63,32 @@ def figure():
 @app.route('/diagramas', methods = ['POST'])
 def distribution():
 
-    df = header_data.get_data()
-    fig = getattr(px, request.form['type'])(df, x ='fecha', y = df.columns)
-    p = plotly.offline.plot(fig, include_plotlyjs=False, output_type='div')
-    return render_template('index.html', plot_div = Markup(p))
+    type_graph = request.form['type-graph']
+    if type_graph == 'histogram':
+        if header_data.get_date() == True:
+
+            df = header_data.get_data()
+            fig = getattr(px, type_graph)(df, x = 'fecha', y = df.columns)
+            p = plotly.offline.plot(fig, include_plotlyjs=False, output_type='div')
+
+            return render_template('diagramas.html', plot_div = Markup(p), date = True )
+        else:
+
+            df = header_data.get_data()
+            fig = getattr(px, type_graph)(df, x = request.form['data-x-dis'], y = request.form['data-y-dis'])
+            p = plotly.offline.plot(fig, include_plotlyjs=False, output_type='div')
+
+            return render_template('diagramas.html', plot_div = Markup(p), date = False )
+
+    if type_graph == 'box':
+
+        df = header_data.get_data()
+        fig = getattr(px, type_graph)(df, y = request.form['data-y-dis'] )
+        p = plotly.offline.plot(fig, include_plotlyjs=False, output_type='div')
+
+        return render_template('diagramas.html', plot_div = Markup(p) )
+
+
 
 @app.route('/map', methods = ['post'])
 def map():

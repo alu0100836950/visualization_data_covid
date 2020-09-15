@@ -25,22 +25,22 @@
             <hr>
         
             <div>
-                <form action="/figura" method="post">
+                <form action="/diagramas" method="post">
                     <select class="form-control" id="type-graph" name="type-graph" >
-                        <option value="bar">Bar</option>
-                        <option value="line">Line</option>
-                        <option value="scatter">Dispersion</option>
+                        <option value="histogram">Histograma</option>
+                        <option value="box">Box</option>
+                        
                     </select>
-                    
-                    <select class="form-control" id="data-x"  name="data-x" style="margin-top: 5px;" required>
+
+                    <select class="form-control" id="data-x-dis"  name="data-x-dis" style="margin-top: 5px;" required>
 
                     </select>
                     
-                    <select class="form-control" id="data-y"  name="data-y" style="margin-top: 5px;" required>
+                    <select class="form-control" id="data-y-dis"  name="data-y-dis" style="margin-top: 5px;" required>
 
                     </select>
                     
-                    <button id="btn-show-graph" class="btn btn-primary" style="margin-top: 5px;" >Crear gráfico</button>
+                    <button id="btn-show-diagram" class="btn btn-primary" style="margin-top: 5px;" >Crear diagrama</button>
                     
                 </form>   
                 
@@ -49,7 +49,10 @@
 
         </div>
 
-            {{ div_fig }}
+        <div>
+            {{ plot_div }}
+        </div>
+            
     
     </div>
 
