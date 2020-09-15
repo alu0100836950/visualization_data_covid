@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <title>Data Covid</title>
+
+</head>
+<body>
+
+    <div align="center" class="container ">
+
+        <nav class="navbar navbar-light bg-light">
+            <span class="navbar-brand mb-0 h1" style="font-size:40px; ">Visualization Data Covid</span>
+        </nav>
+        <div style="width: 400px;">
+            <div>
+                <input type="text" class="form-control" id="data-file" name="data-file" placeholder="Introduce la ruta del fichero">
+                <button id="btn-data-file" class="btn btn-primary" style="margin-top: 5px;"> Cargar fichero </button>
+            </div>
+
+            <hr>
+        
+            <div>
+                <form action="/figura" method="post">
+                    <select class="form-control" id="type-graph" name="type-graph" >
+                        <option value="bar">Bar</option>
+                        <option value="line">Line</option>
+                        <option value="scatter">Dispersion</option>
+                    </select>
+                    
+                    <select class="form-control" id="data-x"  name="data-x" style="margin-top: 5px;" required>
+
+                    </select>
+                    
+                    <select class="form-control" id="data-y"  name="data-y" style="margin-top: 5px;" required>
+
+                    </select>
+                    
+                    <button id="btn-show-graph" class="btn btn-primary" style="margin-top: 5px;" >Crear gráfico</button>
+                
+                </form>       
+            </div>
+            <hr>
+
+        </div>
+
+            {{ div_fig }}
+    
+    </div>
+
+    <!--script src="https://code.jquery.com/jquery-3.5.1.min.js"></script-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/static/js/data.js"></script>
+
+</body>
+</html>
