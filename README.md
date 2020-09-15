@@ -1,4 +1,4 @@
-# visualization_data_covid
+# Visualization Data Covid
 
 
 #### Alberto Martín Núñez
@@ -25,7 +25,7 @@ Por último, podremos utilizar un **mapa** para mostrar algunos datos específic
 
 ### Herramientas utilizadas <a name="id2"></a>
 
-Para realizar esta práctica se ha hecho uso de **Flask** un micropframework de Python que nos permite crear aplicaciones web sencillas y de fomar bastante ligera bajo el patron MVC, el cual nos permite trabajar de forma que podemos diferenciar y separar el modelo de datos(BD), la vista(HTML) y el controlador(peticiones web).
+Para realizar esta práctica se ha hecho uso de **Flask** un micro framework de Python que nos permite crear aplicaciones web sencillas y de fomar bastante ligera bajo el patron MVC, el cual nos permite trabajar de forma que podemos diferenciar y separar el modelo de datos(BD), la vista(HTML) y el controlador(peticiones web).
 
 ### Visualización de gráficos <a name="id3"></a>
 
@@ -55,4 +55,8 @@ Para mostrar las distribuciones que he creado(**boxplot y histogramas**) tenemos
 Aqui podemos comprobar como la mayoria de los datos de entrada de personas hospitalizadas estan por encima de 120.000 cada día.
 
 
-### Creacion de un mapa <a name="id5"></a>
+### Creación de un mapa <a name="id5"></a>
+
+Por último se ha realizado un mapa de los Estados Unidos para mostrar el número de casos. En este caso podemos diferencias los datos por estado.
+
+![Map](img/map.jpeg)

@@ -28,6 +28,10 @@ def index():
 def view_diagram():
     return render_template('diagramas.html')
 
+# @app.route('/map')
+# def view_map():
+#     return render_template('map.html')
+
 @app.route('/dataFile', methods = ['POST'])
 def data_file():
 
@@ -90,7 +94,7 @@ def distribution():
 
 
 
-@app.route('/map', methods = ['post'])
+@app.route('/map')
 def map():
     with urlopen('https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json') as response:
         counties = json.load(response)
@@ -106,7 +110,7 @@ def map():
                             )
     
     p = plotly.offline.plot(fig, include_plotlyjs=False, output_type='div')
-    return render_template('index.html', plot_div = Markup(p))
+    return render_template('map.html', plot_div = Markup(p))
 
 if __name__ == '__main__':
     app.run(debug=True, port=4000)
